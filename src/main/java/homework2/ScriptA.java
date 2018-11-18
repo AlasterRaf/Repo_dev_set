@@ -1,6 +1,7 @@
 package homework2;
 
 import infrastructure.config.logger.TestLogger;
+import infrastructure.config.webdrivermanager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,7 +11,7 @@ public class ScriptA {
     public static void main(String[] args) {
 
         TestLogger logger = new TestLogger();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = DriverManager.getDriver("firefox");
         AdminPageObjects adminPage = new AdminPageObjects(driver);
 
         logger.log("Open admin website");

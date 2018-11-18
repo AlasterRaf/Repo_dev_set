@@ -1,6 +1,7 @@
 package homework2;
 
 import infrastructure.config.logger.TestLogger;
+import infrastructure.config.webdrivermanager.DriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +13,7 @@ public class ScriptB {
     public static void main(String[] args) throws InterruptedException {
 
         TestLogger logger = new TestLogger();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = DriverManager.getDriver("chrome");
         AdminPageObjects adminPage = new AdminPageObjects(driver);
 
         logger.log("Open admin website");
