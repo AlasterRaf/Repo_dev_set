@@ -1,10 +1,9 @@
 package homework2;
 
+import homework3.AdminPageDrivers;
 import infrastructure.config.logger.TestLogger;
 import infrastructure.config.webdrivermanager.DriverManager;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,18 +14,13 @@ public class ScriptB {
         TestLogger logger = new TestLogger();
         WebDriver driver = DriverManager.getDriver("chrome");
         AdminPageObjects adminPage = new AdminPageObjects(driver);
+        AdminPageDrivers loginToAdmin = new AdminPageDrivers();
 
         logger.log("Open admin website");
         driver.get("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/index.php?controller=AdminLogin&token=d251f363cceb5a849cb7330938c64dea");
 
-        logger.log("Enter email");
-        adminPage.emailField().sendKeys("webinar.test@gmail.com");
-
-        logger.log("Enter password");
-        adminPage.passwordField().sendKeys("Xcg7299bnSmMuRLp9ITw");
-
-        logger.log("Click submit button");
-        adminPage.submitButton().click();
+        logger.log("Log in to the Admin Panel");
+        loginToAdmin.loginToAdminPanel(driver);
 
         logger.log("Click on 'Dashboard' menu item");
         adminPage.menuItem("Dashboard").click();
