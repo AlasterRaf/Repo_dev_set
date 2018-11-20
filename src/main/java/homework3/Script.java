@@ -45,8 +45,6 @@ public class Script {
         logger.log("Check filter results");
         assertTrue(adminPage.searcByNameElement().isDisplayed());
 
-        Thread.sleep(5000);
-
         logger.log("Close the browser");
         driver.quit();
     }

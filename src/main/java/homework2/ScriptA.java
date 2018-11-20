@@ -11,7 +11,7 @@ public class ScriptA {
     public static void main(String[] args) {
 
         TestLogger logger = new TestLogger();
-        WebDriver driver = DriverManager.getDriver("firefox");
+        WebDriver driver = DriverManager.getDriver("ie");
         AdminPageObjects adminPage = new AdminPageObjects(driver);
         AdminPageDrivers loginToAdmin = new AdminPageDrivers();
 
